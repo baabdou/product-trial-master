@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: testTech
+  datasource:
+    url: jdbc:postgresql://localhost:5432/alten
+    username: postgres
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+admin:
+  email: admin@admin.com
+
+upload:
+  dir: uploads
