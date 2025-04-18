@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "ee4706ec-ee1f-4dde-b81b-093e8e67bec6",
+		"name": "ALTEN TEST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21295943"
+	},
+	"item": [
+		{
+			"name": "New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"admin\",\r\n    \"email\": \"admin@admin.com\",\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\",\r\n    \"confirmedPassword\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/account",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login / token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE3NDU0MDExMTd9._TwfMnN-kJ46RtFfxAFUtUNg8Pm0AtG5TGr_uQQGknw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "code",
+							"value": "P3",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "First Product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "this is product one",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Homme",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1500.0",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "internalReference",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "shellId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "inventoryStatus",
+							"value": "INSTOCK",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/monsh/Downloads/image1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8081/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update/Patch Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJheml6QHRlc3QuY29tIiwiZXhwIjoxNzQ1MzkxMjIyfQ.GpibYlNtGj66Q5JapAa8PgZpKjeLW7oCIT1f3onRU-U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "code",
+							"value": "P3 updated",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "First Product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "this is product one",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Homme",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1500.0",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "internalReference",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "shellId",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "inventoryStatus",
+							"value": "INSTOCK",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "rating",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/monsh/Downloads/image1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8081/products/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJheml6QHRlc3QuY29tIiwiZXhwIjoxNzQ1MzkxMjIyfQ.GpibYlNtGj66Q5JapAa8PgZpKjeLW7oCIT1f3onRU-U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJheml6QHRlc3QuY29tIiwiZXhwIjoxNzQ1MzkxMjIyfQ.GpibYlNtGj66Q5JapAa8PgZpKjeLW7oCIT1f3onRU-U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/products/11",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJheml6QHRlc3QuY29tIiwiZXhwIjoxNzQ1MzkxMjIyfQ.GpibYlNtGj66Q5JapAa8PgZpKjeLW7oCIT1f3onRU-U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/products/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
